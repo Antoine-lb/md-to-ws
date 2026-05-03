@@ -66,12 +66,12 @@ Ping me on \`whatsapp\` if anything changes.`;
 				bind:this={inputEl}
 				bind:value={input}
 				placeholder="Paste markdown here…"
-				class="min-h-[300px] flex-1 resize-none overflow-hidden rounded border border-gray-300 p-3 font-mono text-sm focus:border-gray-500 focus:outline-none"
+				class="min-h-[300px] flex-1 resize-none overflow-hidden rounded border border-gray-300 p-3 font-mono text-xs focus:border-gray-500 focus:outline-none"
 			></textarea>
 		</label>
 
 		<div class="flex flex-col gap-1">
-			<div class="flex items-center justify-between">
+			<div class="flex items-center justify-between pr-3">
 				<span class="text-sm font-medium text-gray-700">Output (WhatsApp)</span>
 				<div class="flex items-center gap-2">
 					<button
@@ -194,4 +194,32 @@ Ping me on \`whatsapp\` if anything changes.`;
 			</p>
 		</div>
 	</section>
+
+	<footer class="mt-16 flex flex-col gap-2 border-t border-gray-300/70 pt-6 text-sm text-gray-600">
+		<p>
+			This project is open source and made by
+			<a
+				href="https://lebaux.cl"
+				target="_blank"
+				rel="noopener noreferrer"
+				class="text-[#027eb5] underline">lebaux.cl</a
+			>. Source on
+			<a
+				href="https://github.com/Antoine-lb/md-to-ws"
+				target="_blank"
+				rel="noopener noreferrer"
+				class="text-[#027eb5] underline">GitHub</a
+			>.
+		</p>
+		<p>
+			Contributions are more than welcome. Found a bug? The best way to flag
+			it is by filing an
+			<a
+				href="https://github.com/Antoine-lb/md-to-ws/issues"
+				target="_blank"
+				rel="noopener noreferrer"
+				class="text-[#027eb5] underline">issue on GitHub</a
+			>.
+		</p>
+	</footer>
 </main>
