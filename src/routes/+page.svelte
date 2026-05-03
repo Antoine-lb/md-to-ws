@@ -4,10 +4,12 @@
 	import type { Locale } from '$lib/paraglide/runtime';
 	import { getLocale, locales, localizeUrl } from '$lib/paraglide/runtime';
 
-	let input = $state(m.sample());
+	let input = $state<string>(m.sample());
+	let isSample = $state(true);
 	let output = $derived(mdToWhatsApp(input));
 	let outputHtml = $derived(whatsappToHtml(output));
 	let copied = $state(false);
+	let pasted = $state(false);
 	let showRaw = $state(false);
 	let inputEl = $state<HTMLTextAreaElement | null>(null);
 
@@ -19,10 +21,29 @@
 		el.style.height = el.scrollHeight + 'px';
 	});
 
+	function clearSampleOnFirstEdit() {
+		if (isSample) {
+			input = '';
+			isSample = false;
+		}
+	}
+
 	async function copy() {
 		await navigator.clipboard.writeText(output);
 		copied = true;
 		setTimeout(() => (copied = false), 1200);
+	}
+
+	async function paste() {
+		try {
+			const text = await navigator.clipboard.readText();
+			input = text;
+			isSample = false;
+			pasted = true;
+			setTimeout(() => (pasted = false), 1200);
+		} catch {
+			// Clipboard read may be denied; fail silently.
+		}
 	}
 
 	const SITE_URL = 'https://whatdown.lebaux.co';
@@ -192,15 +213,25 @@
 	</header>
 
 	<div class="grid grid-cols-1 items-stretch gap-4 md:grid-cols-2">
-		<label class="flex flex-col gap-1">
-			<span class="text-sm font-medium text-gray-700">{m.input_label()}</span>
+		<div class="flex flex-col gap-1">
+			<div class="flex items-center justify-between">
+				<span class="text-sm font-medium text-gray-700">{m.input_label()}</span>
+				<button
+					type="button"
+					onclick={paste}
+					class="rounded border border-gray-300 px-3 py-1 text-xs font-medium text-gray-700 hover:bg-gray-100"
+				>
+					{pasted ? m.pasted() : m.paste()}
+				</button>
+			</div>
 			<textarea
 				bind:this={inputEl}
 				bind:value={input}
+				onfocus={clearSampleOnFirstEdit}
 				placeholder={m.input_placeholder()}
 				class="min-h-[300px] flex-1 resize-none overflow-hidden rounded border border-gray-300 p-3 font-mono text-xs focus:border-gray-500 focus:outline-none"
 			></textarea>
-		</label>
+		</div>
 
 		<div class="flex flex-col gap-1">
 			<div class="flex items-center justify-between pr-3">
@@ -493,6 +524,15 @@
 					{#if locale === 'ml'}മലയാളം{/if}
 					{#if locale === 'ja'}日本語{/if}
 					{#if locale === 'zh'}中文{/if}
+					{#if locale === 'sw'}Kiswahili{/if}
+					{#if locale === 'vi'}Tiếng Việt{/if}
+					{#if locale === 'ha'}Hausa{/if}
+					{#if locale === 'th'}ไทย{/if}
+					{#if locale === 'fa'}فارسی{/if}
+					{#if locale === 'yo'}Yorùbá{/if}
+					{#if locale === 'ig'}Igbo{/if}
+					{#if locale === 'am'}አማርኛ{/if}
+					{#if locale === 'tl'}Filipino{/if}
 				</a>
 			{/each}
 		</nav>

@@ -17,6 +17,8 @@
 	"show_rendered": "إظهار المعاين",
 	"copy": "نسخ",
 	"copied": "تم النسخ!",
+	"paste": "لصق",
+	"pasted": "تم اللصق!",
 	"preview_placeholder": "معاينة واتساب…",
 
 	"intro_h2": "حوّل Markdown إلى تنسيق واتساب بلصقة واحدة",

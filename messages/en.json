@@ -17,6 +17,8 @@
 	"show_rendered": "Show rendered",
 	"copy": "Copy",
 	"copied": "Copied!",
+	"paste": "Paste",
+	"pasted": "Pasted!",
 	"preview_placeholder": "WhatsApp preview…",
 
 	"intro_h2": "Convert Markdown to WhatsApp formatting in one paste",

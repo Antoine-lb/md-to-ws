@@ -17,6 +17,8 @@
 	"show_rendered": "Ver renderizado",
 	"copy": "Copiar",
 	"copied": "Copiado!",
+	"paste": "Colar",
+	"pasted": "Colado!",
 	"preview_placeholder": "Pré-visualização do WhatsApp…",
 
 	"intro_h2": "Converte Markdown para o formato do WhatsApp num único colar",

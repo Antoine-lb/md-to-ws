@@ -3,6 +3,7 @@
 @plugin '@tailwindcss/typography';
 
 body {
+	background-color: #E5DDD4;
 	background-image: url('/ws-wallpaper.webp');
 	background-repeat: repeat;
 	background-size: 400px;

@@ -1,83 +1,83 @@
 # WhatsApp language plan
 
-A look at the largest WhatsApp language markets, used to prioritize i18n coverage for this app.
-
-WhatsApp does not publish official user counts by language, so the figures below aggregate users across countries where each language is dominant. Numbers are approximate (mostly 2024–2026 data).
-
-## Top 10 WhatsApp languages
-
-| # | Language | Code | Estimated users | Main countries | Supported in app |
+| # | Language | Code | Status | Estimated users | Main countries / demographic |
 |---|---|---|---|---|---|
-| 1 | Hindi (proxy for India) | `hi` | ~535–854M | India (~17% of all WhatsApp users worldwide) | ✅ |
-| 2 | Spanish | `es` | ~200M+ | Mexico (65M), Spain (33M), Argentina, Colombia (29M), rest of LatAm | ✅ |
-| 3 | Portuguese | `pt` | ~140–148M | Brazil (~140M, ~98% smartphone penetration), Portugal | ✅ |
-| 4 | English | `en` | ~140M+ | USA (64M), UK (41M), Nigeria (~51M, primarily English), Australia, Canada | ✅ |
-| 5 | Indonesian | `id` | ~112M | Indonesia (112M) | ✅ |
-| 5 | Malay | `ms` | ~25M | Malaysia (~22M), Brunei, Singapore | ✅ |
-| 6 | Arabic | `ar` | ~100M+ | Egypt (56M), Saudi Arabia, UAE, Morocco, Algeria, Iraq | ✅ |
-| 7 | Russian | `ru` | ~72M | Russia (72M), CIS countries | ✅ |
-| 8 | Turkish | `tr` | ~60M | Turkey (60M) | ✅ |
-| 9 | German | `de` | ~55M | Germany (53M), Austria, Switzerland | ✅ |
-| 10 | Italian | `it` | ~38M | Italy (37.5M) | ✅ |
+| 1 | Hindi | `hi` | ✅ Done | ~528M native, ~600M+ with L2 | India (Hindi belt — North India); ~17% of all WhatsApp users worldwide |
+| 2 | Spanish | `es` | ✅ Done | ~200M+ | Mexico (65M), Spain (33M), Argentina, Colombia (29M), rest of LatAm |
+| 3 | Portuguese | `pt` | ✅ Done | ~140–148M | Brazil (~140M, ~98% smartphone penetration), Portugal |
+| 4 | English | `en` (base) | ✅ Done | ~140M+ | USA (64M), UK (41M), Nigeria (~51M), Australia, Canada |
+| 5 | Indonesian | `id` | ✅ Done | ~112M | Indonesia |
+| 6 | Arabic | `ar` | ✅ Done (RTL) | ~100M+ | Egypt (56M), Saudi Arabia, UAE, Morocco, Algeria, Iraq |
+| 7 | Bengali | `bn` | ✅ Done | ~97M in India + ~160M in Bangladesh | West Bengal, Tripura, Bangladesh |
+| 8 | Marathi | `mr` | ✅ Done | ~83M | Maharashtra (Mumbai) |
+| 9 | Telugu | `te` | ✅ Done | ~81M | Andhra Pradesh, Telangana |
+| 10 | Russian | `ru` | ✅ Done | ~72M | Russia, CIS countries |
+| 11 | Tamil | `ta` | ✅ Done | ~69M | Tamil Nadu, Sri Lanka, Singapore, Malaysia diaspora |
+| 12 | Turkish | `tr` | ✅ Done | ~60M | Turkey |
+| 13 | German | `de` | ✅ Done | ~55M | Germany (53M), Austria, Switzerland |
+| 14 | Gujarati | `gu` | ✅ Done | ~55M | Gujarat |
+| 15 | Urdu | `ur` | ✅ Done (RTL) | ~50M in India + ~230M total incl. L2 | North India, Pakistan |
+| 16 | Kannada | `kn` | ✅ Done | ~43M | Karnataka (Bengaluru) |
+| 17 | Italian | `it` | ✅ Done | ~38M | Italy |
+| 18 | Odia | `or` | ✅ Done | ~37M | Odisha |
+| 19 | Malayalam | `ml` | ✅ Done | ~35M | Kerala |
+| 20 | Punjabi | `pa` | ✅ Done | ~33M | Punjab; major diaspora in Canada/UK |
+| 21 | Malay | `ms` | ✅ Done | ~25M | Malaysia (~22M), Brunei, Singapore |
+| 22 | French | `fr` | ✅ Done | significant | France, Belgium, Switzerland, francophone Africa |
+| 23 | Polish | `pl` | ✅ Done | ~38M | Poland |
+| 24 | Japanese | `ja` | ✅ Done | small WA share | Japan — LINE dominates domestic chat, but Japan is a major LLM-user market for international WhatsApp output |
+| 25 | Chinese (Simplified) | `zh` | ✅ Done | large addressable | Hong Kong, Taiwan, Singapore, Malaysia, global diaspora (Mainland China blocks WhatsApp) |
+| 26 | Vietnamese | `vi` | ✅ Done | ~85M | Vietnam — single-country reach but very high penetration |
+| 27 | Persian / Farsi | `fa` | ✅ Done (RTL) | ~70M+ | Iran, Afghanistan (also as Dari), Tajikistan |
+| 28 | Thai | `th` | ✅ Done | ~55M+ | Thailand, Laos diaspora |
+| 29 | Swahili | `sw` | ✅ Done | ~80M (incl. L2) | Tanzania, Kenya, Uganda, DRC, Rwanda — East African lingua franca |
+| 30 | Hausa | `ha` | ✅ Done | ~80M (incl. L2) | Northern Nigeria, Niger, Chad, Cameroon — major West African lingua franca |
+| 31 | Yoruba | `yo` | ✅ Done | ~45M | Southwestern Nigeria, Benin, Togo |
+| 32 | Igbo | `ig` | ✅ Done | ~30M | Southeastern Nigeria |
+| 33 | Amharic | `am` | ✅ Done | ~32M | Ethiopia (working language) |
+| 34 | Filipino / Tagalog | `tl` | ✅ Done | ~45M (~80M incl. L2) | Philippines |
+| 35 | Burmese | `my` | ⏳ To do | ~33M | Myanmar |
+| 36 | Khmer | `km` | ⏳ To do | ~16M | Cambodia |
+| 37 | Sinhala | `si` | ⏳ To do | ~17M | Sri Lanka |
+| 38 | Nepali | `ne` | ⏳ To do | ~32M | Nepal, parts of India (Sikkim, Darjeeling), Bhutan |
+| 39 | Ukrainian | `uk` | ⏳ To do | ~33M | Ukraine, diaspora across Europe |
+| 40 | Dutch | `nl` | ⏳ To do | ~24M | Netherlands, Belgium (Flanders), Suriname |
+| 41 | Hebrew | `he` | ⏳ To do (RTL) | ~9M | Israel, global Jewish diaspora |
 
-Other locales currently in the app but outside the top 10 by user count:
-- French (`fr`) — ✅ supported (significant footprint in France, Belgium, Switzerland, francophone Africa)
-- Polish (`pl`) — ✅ supported
-- Japanese (`ja`) — ✅ supported (LINE dominates domestic chat in Japan, so WhatsApp share is small, but Japan is still a major source of LLM users likely to want clean WhatsApp output for international contacts)
-- Chinese (`zh`) — ✅ supported (Mainland China blocks WhatsApp and uses WeChat instead, but the addressable Chinese-speaking audience is large in Hong Kong, Taiwan, Singapore, Malaysia, and the global diaspora)
+## Files to update when adding a locale
 
-## Indian languages in detail
+Empirical checklist (matches what recent locale-add commits actually touched):
 
-India is by far WhatsApp's largest market (~535–854M users depending on the source — roughly 17% of all global WhatsApp users). But "Indian" is not a language. India is multilingual, with 22 scheduled languages in its constitution and 100+ languages with significant speaker bases.
+| File | Change | Notes |
+|---|---|---|
+| [project.inlang/settings.json](project.inlang/settings.json) | Add the code to the `locales` array | Single source of truth for Paraglide. Triggers regeneration of `src/lib/paraglide/*` on next build. |
+| [messages/{locale}.json](messages/) | Create the file | Mirror the key set of [messages/en.json](messages/en.json) (~109 keys). Path comes from `pathPattern` in inlang settings. |
+| [static/sitemap.xml](static/sitemap.xml) | Add `<url>` block for `/{locale}` and add the new `<xhtml:link rel="alternate" hreflang="{locale}" ...>` line to **every existing** `<url>` block | Hand-maintained, not generated. This is the SEO-critical step — without it, Google will not know the locale exists or that it's an alternate of the other URLs. |
+| [src/routes/+page.svelte](src/routes/+page.svelte) | Add a `{#if locale === '{code}'}{native name}{/if}` line in the language picker (around line 488) | Native script (e.g. `日本語`, `ਪੰਜਾਬੀ`), not English name. |
 
-Per the 2011 Census of India (still the most-cited source for native-speaker counts):
+Auto-handled, no manual edit needed:
+- `src/lib/paraglide/*` — gitignored, regenerated by Paraglide from `settings.json` + message files on `npm run build` (or `npx paraglide-js compile`).
+- `<html dir>` — Paraglide's `getTextDirection` (called in [src/hooks.server.ts](src/hooks.server.ts)) reads RTL from CLDR automatically. Arabic, Urdu, Persian, and Hebrew will all flip to RTL with no code change.
 
-| # | Language | Code | Native speakers | % of India | Region |
-|---|---|---|---|---|---|
-| 1 | Hindi | `hi` | ~528M | 43.6% | North India ("Hindi belt") | ✅ |
-| 2 | Bengali | `bn` | ~97M | 8.0% | West Bengal, Tripura (also national language of Bangladesh, +160M more speakers there) | ✅ |
-| 3 | Marathi | `mr` | ~83M | 6.9% | Maharashtra (Mumbai) | ✅ |
-| 4 | Telugu | `te` | ~81M | 6.7% | Andhra Pradesh, Telangana | ✅ |
-| 5 | Tamil | `ta` | ~69M | 5.7% | Tamil Nadu (also Sri Lanka, Singapore, Malaysia diaspora) | ✅ |
-| 6 | Gujarati | `gu` | ~55M | 4.6% | Gujarat | ✅ |
-| 7 | Urdu | `ur` | ~50M | 4.2% | spread across North India (also national language of Pakistan, ~230M total speakers including L2) | ✅ |
-| 8 | Kannada | `kn` | ~43M | 3.6% | Karnataka (Bengaluru) | ✅ |
-| 9 | Odia | `or` | ~37M | 3.1% | Odisha | ✅ |
-| 10 | Malayalam | `ml` | ~35M | 2.9% | Kerala | ✅ |
-| 11 | Punjabi | `pa` | ~33M | 2.7% | Punjab (also major diaspora in Canada/UK) | ✅ |
+Post-add verification:
+- `npm run build` succeeds (Paraglide compiles cleanly).
+- Visit `/{locale}` locally and confirm: page renders, language picker shows the new entry, RTL locales flip direction.
+- View page source on `/{locale}` and confirm `<link rel="alternate" hreflang="{locale}">` appears (or check the sitemap directly at `/sitemap.xml`).
+- Update this file: move the row from ⏳ To do to ✅ Done.
 
-**Important caveat for the app:** shipping `hi` alone covers Hindi natively, and Hindi is widely understood as a second language across the Hindi belt — but it does **not** cover South India (Tamil, Telugu, Kannada, Malayalam) or the East (Bengali, Odia) where speakers often prefer English over Hindi as their second language. With Malayalam, Odia, and Punjabi all in, every top-11 Indian language is now covered.
+## Variant notes
 
-## Current app support
-
-Locales configured in `project.inlang/settings.json`:
-- ✅ `en` (base) · `es` · `pt` · `fr` · `de` · `it` · `pl` · `hi` · `ar` · `id` · `ms` · `ru` · `tr` · `bn` · `mr` · `ta` · `te` · `gu` · `kn` · `ur` · `pa` · `ja` · `or` · `ml` · `zh`
-
-Total: 25 locales.
-
-RTL is wired through Paraglide's `getTextDirection` (called in `src/hooks.server.ts`) into `<html dir>` — Arabic and Urdu are the RTL locales currently in the app; future RTL adds (Hebrew, Persian) will not need new infrastructure.
-
-**Note on `id` vs `ms`:** Indonesian and Malay share roots and are mutually intelligible at a basic level, but they have diverged enough in vocabulary, spelling, and idiom that Indonesians and Malaysians generally prefer their own variant. They also have separate ISO 639-1 codes (`id`, `ms`), which means Google can serve them as distinct hreflang targets — collapsing them into one locale would leave SEO reach on the table in either Indonesia or Malaysia.
-
-**Note on `zh` (Simplified vs Traditional):** Chinese splits into Simplified (`zh-Hans`, used in Mainland China and Singapore) and Traditional (`zh-Hant`, used in Hong Kong and Taiwan). The current `zh` locale ships Simplified, which most Chinese readers can decode even if they prefer Traditional. Mainland China itself blocks WhatsApp, so the relevant audience is mostly Hong Kong, Taiwan, Singapore, Malaysia, and the diaspora. If usage data later shows meaningful HK/TW traffic, splitting into `zh-Hans` and `zh-Hant` is straightforward — Paraglide and `hreflang` both support BCP-47 region tags.
-
-## Suggested priority order for new locales
-
-Based on raw WhatsApp user reach, ordered by expected impact:
-
-1. **Persian/Farsi (`fa`)** — ~70M+ (Iran, Afghanistan, Tajikistan). RTL infrastructure already in place from Arabic and Urdu.
-2. **Vietnamese (`vi`)** — ~85M (Vietnam). Single-country reach but very high penetration.
-3. **Thai (`th`)** — ~55M+ (Thailand, Laos diaspora).
-
-Notes:
-- Indian-language adds have multiplicative value because they don't just bring new users; they deepen reach in an already-massive market where the app likely already has traction in English/Hindi.
+- **`id` vs `ms`:** Indonesian and Malay share roots and are mutually intelligible at a basic level, but they have diverged enough in vocabulary, spelling, and idiom that Indonesians and Malaysians generally prefer their own variant. Separate ISO 639-1 codes (`id`, `ms`) also let Google serve them as distinct hreflang targets.
+- **`zh` (Simplified vs Traditional):** Chinese splits into Simplified (`zh-Hans`, Mainland China and Singapore) and Traditional (`zh-Hant`, Hong Kong and Taiwan). Current `zh` ships Simplified, which most Chinese readers can decode even if they prefer Traditional. If usage data later shows meaningful HK/TW traffic, splitting into `zh-Hans` and `zh-Hant` is straightforward.
+- **`fa` regional variants:** Iranian Persian (`fa-IR`), Dari (`fa-AF`/`prs`), and Tajik (`tg`, written in Cyrillic) diverge in vocabulary and script. Shipping `fa` first covers Iran and most of Afghanistan; Tajik would be a separate add.
 
 ## Caveats
 
+- WhatsApp does not publish official user counts by language; figures aggregate users across countries where each language is dominant (mostly 2024–2026 data).
 - The country-to-language mapping is a proxy, not telemetry. Multilingual countries (India, Nigeria, Indonesia, Switzerland) inflate or fragment counts.
 - Bilingual users get double-counted across regions.
 - WhatsApp's own UI supports 60+ languages; on-device message translation is currently rolling out in English, Spanish, Hindi, Portuguese, Russian, and Arabic — a useful signal of which language markets Meta itself prioritizes.
-- All Indian-language speaker numbers come from the 2011 Census; real 2026 numbers are higher across the board but the relative rankings have not shifted meaningfully.
+- All Indian-language speaker numbers come from the 2011 Census of India; real 2026 numbers are higher across the board but the relative rankings have not shifted meaningfully.
 
 ## Sources
 

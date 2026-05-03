@@ -17,6 +17,8 @@
 	"show_rendered": "Sohbet görünümünü göster",
 	"copy": "Kopyala",
 	"copied": "Kopyalandı!",
+	"paste": "Yapıştır",
+	"pasted": "Yapıştırıldı!",
 	"preview_placeholder": "WhatsApp önizlemesi…",
 
 	"intro_h2": "Markdown'ı tek yapıştırmayla WhatsApp biçimine dönüştürün",

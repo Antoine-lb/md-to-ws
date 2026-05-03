@@ -17,6 +17,8 @@
 	"show_rendered": "プレビューを表示",
 	"copy": "コピー",
 	"copied": "コピーしました!",
+	"paste": "貼り付け",
+	"pasted": "貼り付けました!",
 	"preview_placeholder": "WhatsApp プレビュー…",
 
 	"intro_h2": "Markdown を一度の貼り付けで WhatsApp 形式に変換",

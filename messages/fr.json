@@ -17,6 +17,8 @@
 	"show_rendered": "Voir rendu",
 	"copy": "Copier",
 	"copied": "Copié !",
+	"paste": "Coller",
+	"pasted": "Collé !",
 	"preview_placeholder": "Aperçu WhatsApp…",
 
 	"intro_h2": "Convertis du Markdown au format WhatsApp en un seul collage",

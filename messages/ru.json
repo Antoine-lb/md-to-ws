@@ -17,6 +17,8 @@
 	"show_rendered": "Показать как в чате",
 	"copy": "Копировать",
 	"copied": "Скопировано!",
+	"paste": "Вставить",
+	"pasted": "Вставлено!",
 	"preview_placeholder": "Предпросмотр WhatsApp…",
 
 	"intro_h2": "Преобразуйте Markdown в формат WhatsApp одной вставкой",
