@@ -15,11 +15,14 @@
 <svelte:head><title>ws-md · Markdown → WhatsApp</title></svelte:head>
 
 <main class="mx-auto flex h-screen max-w-6xl flex-col gap-4 p-6">
-	<header>
-		<h1 class="text-xl font-semibold">Markdown → WhatsApp</h1>
-		<p class="text-sm text-gray-500">
-			Paste LLM markdown on the left, copy WhatsApp-formatted text on the right.
-		</p>
+	<header class="flex items-center gap-3">
+		<img src="/whatdown.svg" alt="" class="h-12 w-auto shrink-0" />
+		<div>
+			<h1 class="text-xl font-semibold leading-tight">Markdown → WhatsApp</h1>
+			<p class="text-sm leading-tight text-gray-500">
+				Paste LLM markdown on the left, copy WhatsApp-formatted text on the right.
+			</p>
+		</div>
 	</header>
 
 	<div class="grid min-h-0 flex-1 grid-cols-1 gap-4 md:grid-cols-2">
@@ -44,12 +47,28 @@
 					{copied ? 'Copied!' : 'Copy'}
 				</button>
 			</div>
-			<textarea
-				readonly
-				value={output}
-				placeholder="WhatsApp output…"
-				class="min-h-0 flex-1 resize-none rounded border border-gray-300 bg-gray-50 p-3 font-mono text-sm"
-			></textarea>
+
+			<!-- WhatsApp outgoing message bubble -->
+			<div class="relative flex min-h-0 flex-1 justify-end pt-1 pr-3">
+				<div
+					class="relative flex min-h-0 max-w-full flex-1 rounded-lg rounded-br-none bg-[#d9fdd3]"
+				>
+					<!-- bubble tail (extends 1px back into the bubble so there's no seam) -->
+					<svg
+						aria-hidden="true"
+						viewBox="0 0 9 13"
+						class="absolute -right-2 bottom-0 h-3 w-[9px] text-[#d9fdd3]"
+					>
+						<path d="M1 13 L9 13 L1 0 Z" fill="currentColor" />
+					</svg>
+					<textarea
+						readonly
+						value={output}
+						placeholder="WhatsApp output…"
+						class="min-h-0 flex-1 resize-none rounded-lg rounded-br-none border-none bg-transparent p-3 pb-5 font-mono text-sm text-gray-900 placeholder-gray-500/70 outline-none focus:border-none focus:ring-0 focus:outline-none"
+					></textarea>
+				</div>
+			</div>
 		</div>
 	</div>
 </main>

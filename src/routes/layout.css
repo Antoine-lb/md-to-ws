@@ -1,3 +1,9 @@
 @import 'tailwindcss';
 @plugin '@tailwindcss/forms';
 @plugin '@tailwindcss/typography';
+
+body {
+	background-image: url('/ws-wallpaper.webp');
+	background-repeat: repeat;
+	background-size: 400px;
+}
