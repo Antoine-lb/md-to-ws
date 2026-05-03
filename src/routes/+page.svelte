@@ -25,6 +25,7 @@ Ping me on \`whatsapp\` if anything changes.`;
 	let output = $derived(mdToWhatsApp(input));
 	let outputHtml = $derived(whatsappToHtml(output));
 	let copied = $state(false);
+	let showRaw = $state(false);
 	let inputEl = $state<HTMLTextAreaElement | null>(null);
 
 	// Auto-grow the input textarea to fit its content (above a baseline min-height
@@ -72,14 +73,24 @@ Ping me on \`whatsapp\` if anything changes.`;
 		<div class="flex flex-col gap-1">
 			<div class="flex items-center justify-between">
 				<span class="text-sm font-medium text-gray-700">Output (WhatsApp)</span>
-				<button
-					type="button"
-					onclick={copy}
-					disabled={!output}
-					class="rounded bg-gray-900 px-3 py-1 text-xs font-medium text-white disabled:opacity-40"
-				>
-					{copied ? 'Copied!' : 'Copy'}
-				</button>
+				<div class="flex items-center gap-2">
+					<button
+						type="button"
+						onclick={() => (showRaw = !showRaw)}
+						aria-pressed={showRaw}
+						class="rounded border border-gray-300 px-3 py-1 text-xs font-medium text-gray-700 hover:bg-gray-100"
+					>
+						{showRaw ? 'Show rendered' : 'Show raw'}
+					</button>
+					<button
+						type="button"
+						onclick={copy}
+						disabled={!output}
+						class="rounded bg-gray-900 px-3 py-1 text-xs font-medium text-white disabled:opacity-40"
+					>
+						{copied ? 'Copied!' : 'Copy'}
+					</button>
+				</div>
 			</div>
 
 			<!-- WhatsApp outgoing message bubble (rendered preview) -->
@@ -96,11 +107,16 @@ Ping me on \`whatsapp\` if anything changes.`;
 						<path d="M1 13 L9 13 L1 0 Z" fill="currentColor" />
 					</svg>
 					{#if output}
-						<div
-							class="wa-bubble min-w-0 flex-1 p-3 text-sm leading-snug text-gray-900"
-						>
-							{@html outputHtml}
-						</div>
+						{#if showRaw}
+							<pre
+								class="min-w-0 flex-1 p-3 font-mono text-xs whitespace-pre-wrap text-gray-900">{output}</pre>
+						{:else}
+							<div
+								class="wa-bubble min-w-0 flex-1 p-3 text-sm leading-snug text-gray-900"
+							>
+								{@html outputHtml}
+							</div>
+						{/if}
 					{:else}
 						<div class="flex-1 p-3 text-sm text-gray-500/70">WhatsApp preview…</div>
 					{/if}
@@ -109,80 +125,73 @@ Ping me on \`whatsapp\` if anything changes.`;
 		</div>
 	</div>
 
-	<!-- Raw text representation (what gets copied) — aligned under the bubble -->
-	<div class="grid grid-cols-1 gap-4 md:grid-cols-2">
-		<div></div>
-		<details open>
-			<summary class="cursor-pointer text-xs font-medium text-gray-600 select-none">
-				Raw text (this is what's copied)
-			</summary>
-			<pre
-				class="mt-1 rounded border border-gray-300 bg-white/70 p-2 font-mono text-xs whitespace-pre-wrap text-gray-800">{output}</pre>
-		</details>
-	</div>
+	<!-- Why doesn't WhatsApp use standard Markdown? — long-form prose -->
+	<section class="mt-16 flex flex-col gap-4 text-gray-800">
+		<header class="flex flex-col gap-1">
+			<p class="text-xs font-medium tracking-wide text-gray-500 uppercase">
+				Speculation — not an official answer
+			</p>
+			<h2 class="text-2xl font-semibold text-gray-900">
+				Why doesn't WhatsApp just use standard Markdown?
+			</h2>
+		</header>
 
-	<!-- Why doesn't WhatsApp use standard Markdown? — incoming-style bubble -->
-	<section class="mt-10 flex flex-col gap-3">
-		<h2 class="text-sm font-medium text-gray-700">
-			Why doesn't WhatsApp just use standard Markdown?
-		</h2>
+		<div class="flex flex-col gap-4 text-base leading-relaxed">
+			<p>
+				WhatsApp has never publicly explained the choice, and developers who
+				have looked for one keep coming up empty. What follows is informed
+				guesswork, not fact.
+			</p>
 
-		<div class="relative flex max-w-2xl pl-3">
-			<div class="relative flex flex-1 rounded-lg rounded-bl-none bg-white">
-				<!-- bubble tail on the left, mirroring the outgoing one above -->
-				<svg
-					aria-hidden="true"
-					viewBox="0 0 9 13"
-					class="absolute -left-2 bottom-0 h-3 w-[9px] text-white"
-				>
-					<path d="M8 13 L0 13 L8 0 Z" fill="currentColor" />
-				</svg>
-				<div class="wa-bubble min-w-0 flex-1 p-3 text-sm leading-snug text-gray-900">
-					<p class="mb-2 text-xs tracking-wide text-gray-500 uppercase">
-						Speculation — not an official answer
-					</p>
-					<p class="mb-2">
-						WhatsApp has never publicly explained the choice, and developers who
-						have looked for one keep coming up empty. What follows is informed
-						guesswork, not fact.
-					</p>
-					<p class="mb-2">
-						<strong>Mobile keyboards favour single delimiters.</strong> CommonMark
-						uses <code class="wa-code">**bold**</code> and
-						<code class="wa-code">*italic*</code>. On a phone, asterisks live behind
-						a symbols toggle — four taps per bold word is a lot. WhatsApp picked
-						<code class="wa-code">*bold*</code>,
-						<code class="wa-code">_italic_</code>,
-						<code class="wa-code">~strike~</code>: one character per side, no
-						overlap.
-					</p>
-					<p class="mb-2">
-						<strong>Markdown was built for documents, not chat bubbles.</strong> Headings,
-						paragraphs, link references, nested lists — almost none of it maps
-						to a short message. Adopting the full spec would mean importing a
-						parser and a pile of edge cases to use roughly four features.
-					</p>
-					<p class="mb-2">
-						<strong>Chat had its own conventions first.</strong> IRC and early IM
-						clients used <code class="wa-code">*bold*</code> and
-						<code class="wa-code">_italic_</code> as typographic shorthand long before
-						Markdown existed. Slack, Telegram, Discord and Signal all diverge from
-						CommonMark in different ways — chat apps as a category never standardised
-						on it.
-					</p>
-					<p class="mb-2">
-						<strong>Lock-in came fast.</strong> Once shipped to a billion users
-						in 2016, switching to <code class="wa-code">**bold**</code> would have
-						silently broken every older message anyone scrolled back to.
-					</p>
-					<p class="text-gray-600">
-						Best honest summary: a mix of thumb-typing ergonomics, inheritance
-						from IRC/IM rather than from Markdown, and not wanting a
-						document-oriented spec for a four-feature use case. Anyone claiming
-						a definitive reason is guessing — including us.
-					</p>
-				</div>
-			</div>
+			<h3 class="mt-2 text-lg font-semibold text-gray-900">
+				Mobile keyboards favour single delimiters
+			</h3>
+			<p>
+				CommonMark uses <code class="wa-code">**bold**</code> and
+				<code class="wa-code">*italic*</code>. On a phone, asterisks live
+				behind a symbols toggle — four taps per bold word is a lot. WhatsApp
+				picked <code class="wa-code">*bold*</code>,
+				<code class="wa-code">_italic_</code>,
+				<code class="wa-code">~strike~</code>: one character per side, no
+				overlap between marks.
+			</p>
+
+			<h3 class="mt-2 text-lg font-semibold text-gray-900">
+				Markdown was built for documents, not chat bubbles
+			</h3>
+			<p>
+				Headings, paragraphs, link references, nested lists — almost none of
+				it maps cleanly to a short message. Adopting the full spec would mean
+				importing a parser and a pile of edge cases to use roughly four
+				features.
+			</p>
+
+			<h3 class="mt-2 text-lg font-semibold text-gray-900">
+				Chat had its own conventions first
+			</h3>
+			<p>
+				IRC and early IM clients used <code class="wa-code">*bold*</code> and
+				<code class="wa-code">_italic_</code> as typographic shorthand long
+				before Markdown existed. Slack, Telegram, Discord and Signal all
+				diverge from CommonMark in different ways — chat apps as a category
+				never standardised on it.
+			</p>
+
+			<h3 class="mt-2 text-lg font-semibold text-gray-900">
+				Lock-in came fast
+			</h3>
+			<p>
+				Once shipped to a billion users in 2016, switching to
+				<code class="wa-code">**bold**</code> would have silently broken every
+				older message anyone scrolled back to.
+			</p>
+
+			<p class="mt-4 border-t border-gray-300/70 pt-4 text-gray-600">
+				Best honest summary: a mix of thumb-typing ergonomics, inheritance
+				from IRC/IM rather than from Markdown, and not wanting a
+				document-oriented spec for a four-feature use case. Anyone claiming a
+				definitive reason is guessing — including us.
+			</p>
 		</div>
 	</section>
 </main>
