@@ -1,8 +1,9 @@
 <script lang="ts">
-	import { mdToWhatsApp } from '$lib/whatsapp';
+	import { mdToWhatsApp, whatsappToHtml } from '$lib/whatsapp';
 
 	let input = $state('');
 	let output = $derived(mdToWhatsApp(input));
+	let outputHtml = $derived(whatsappToHtml(output));
 	let copied = $state(false);
 
 	async function copy() {
@@ -48,26 +49,40 @@
 				</button>
 			</div>
 
-			<!-- WhatsApp outgoing message bubble -->
-			<div class="relative flex min-h-0 flex-1 justify-end pt-1 pr-3">
-				<div
-					class="relative flex min-h-0 max-w-full flex-1 rounded-lg rounded-br-none bg-[#d9fdd3]"
-				>
-					<!-- bubble tail (extends 1px back into the bubble so there's no seam) -->
-					<svg
-						aria-hidden="true"
-						viewBox="0 0 9 13"
-						class="absolute -right-2 bottom-0 h-3 w-[9px] text-[#d9fdd3]"
+			<!-- WhatsApp outgoing message bubble (rendered preview) -->
+			<div class="relative flex min-h-0 flex-1 flex-col gap-2">
+				<div class="relative flex min-h-0 flex-1 justify-end pt-1 pr-3">
+					<div
+						class="relative flex max-h-full min-h-0 max-w-full flex-1 rounded-lg rounded-br-none bg-[#d9fdd3]"
 					>
-						<path d="M1 13 L9 13 L1 0 Z" fill="currentColor" />
-					</svg>
-					<textarea
-						readonly
-						value={output}
-						placeholder="WhatsApp output…"
-						class="min-h-0 flex-1 resize-none rounded-lg rounded-br-none border-none bg-transparent p-3 pb-5 font-mono text-sm text-gray-900 placeholder-gray-500/70 outline-none focus:border-none focus:ring-0 focus:outline-none"
-					></textarea>
+						<!-- bubble tail (extends 1px back into the bubble so there's no seam) -->
+						<svg
+							aria-hidden="true"
+							viewBox="0 0 9 13"
+							class="absolute -right-2 bottom-0 h-3 w-[9px] text-[#d9fdd3]"
+						>
+							<path d="M1 13 L9 13 L1 0 Z" fill="currentColor" />
+						</svg>
+						{#if output}
+							<div
+								class="wa-bubble min-w-0 flex-1 overflow-y-auto p-3 pb-5 text-sm leading-snug text-gray-900"
+							>
+								{@html outputHtml}
+							</div>
+						{:else}
+							<div class="flex-1 p-3 pb-5 text-sm text-gray-500/70">WhatsApp preview…</div>
+						{/if}
+					</div>
 				</div>
+
+				<!-- Raw text representation (what gets copied) -->
+				<details class="shrink-0">
+					<summary class="cursor-pointer text-xs font-medium text-gray-600 select-none">
+						Raw text (this is what's copied)
+					</summary>
+					<pre
+						class="mt-1 max-h-32 overflow-auto rounded border border-gray-300 bg-white/70 p-2 font-mono text-xs whitespace-pre-wrap text-gray-800">{output}</pre>
+				</details>
 			</div>
 		</div>
 	</div>
