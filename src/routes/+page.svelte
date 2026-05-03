@@ -474,6 +474,11 @@
 					{#if locale === 'fr'}Français{/if}
 					{#if locale === 'de'}Deutsch{/if}
 					{#if locale === 'it'}Italiano{/if}
+					{#if locale === 'pl'}Polski{/if}
+					{#if locale === 'hi'}हिन्दी{/if}
+					{#if locale === 'ar'}العربية{/if}
+					{#if locale === 'id'}Bahasa Indonesia{/if}
+					{#if locale === 'ms'}Bahasa Melayu{/if}
 				</a>
 			{/each}
 		</nav>
