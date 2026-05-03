@@ -488,6 +488,11 @@
 					{#if locale === 'gu'}ગુજરાતી{/if}
 					{#if locale === 'ur'}اردو{/if}
 					{#if locale === 'kn'}ಕನ್ನಡ{/if}
+					{#if locale === 'pa'}ਪੰਜਾਬੀ{/if}
+					{#if locale === 'or'}ଓଡ଼ିଆ{/if}
+					{#if locale === 'ml'}മലയാളം{/if}
+					{#if locale === 'ja'}日本語{/if}
+					{#if locale === 'zh'}中文{/if}
 				</a>
 			{/each}
 		</nav>
