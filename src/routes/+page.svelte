@@ -207,7 +207,7 @@
 	<header class="flex items-center gap-3">
 		<img src="/whatdown.svg" alt="Whatdown" class="h-12 w-auto shrink-0" />
 		<div>
-			<h1 class="text-xl font-semibold leading-tight">{m.h1()}</h1>
+			<h1 class="text-xl leading-tight font-semibold">{m.h1()}</h1>
 			<p class="text-sm leading-tight text-gray-500">{m.tagline()}</p>
 		</div>
 	</header>
@@ -387,15 +387,16 @@
 			<div>
 				<h3 class="text-lg font-semibold text-gray-900">{m.faq_q2()}</h3>
 				<p>
-					{m.faq_a2_before_code()}<code class="wa-code">{m.faq_a2_code()}</code>{m.faq_a2_after_code()}
+					{m.faq_a2_before_code()}<code class="wa-code">{m.faq_a2_code()}</code
+					>{m.faq_a2_after_code()}
 				</p>
 			</div>
 
 			<div>
 				<h3 class="text-lg font-semibold text-gray-900">{m.faq_q3()}</h3>
 				<p>
-					{m.faq_a3_before_code1()}<code class="wa-code">{m.faq_a3_code1()}</code>{m.faq_a3_middle()}<code
-						class="wa-code">{m.faq_a3_code2()}</code
+					{m.faq_a3_before_code1()}<code class="wa-code">{m.faq_a3_code1()}</code
+					>{m.faq_a3_middle()}<code class="wa-code">{m.faq_a3_code2()}</code
 					>{m.faq_a3_after_code2()}
 				</p>
 			</div>
@@ -504,6 +505,7 @@
 					{#if locale === 'pt'}Português{/if}
 					{#if locale === 'fr'}Français{/if}
 					{#if locale === 'de'}Deutsch{/if}
+					{#if locale === 'nl'}Nederlands{/if}
 					{#if locale === 'it'}Italiano{/if}
 					{#if locale === 'pl'}Polski{/if}
 					{#if locale === 'hi'}हिन्दी{/if}
@@ -533,6 +535,12 @@
 					{#if locale === 'ig'}Igbo{/if}
 					{#if locale === 'am'}አማርኛ{/if}
 					{#if locale === 'tl'}Filipino{/if}
+					{#if locale === 'my'}မြန်မာ{/if}
+					{#if locale === 'km'}ភាសាខ្មែរ{/if}
+					{#if locale === 'uk'}Українська{/if}
+					{#if locale === 'si'}සිංහල{/if}
+					{#if locale === 'ne'}नेपाली{/if}
+					{#if locale === 'he'}עברית{/if}
 				</a>
 			{/each}
 		</nav>
