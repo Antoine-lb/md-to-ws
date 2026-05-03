@@ -479,6 +479,15 @@
 					{#if locale === 'ar'}العربية{/if}
 					{#if locale === 'id'}Bahasa Indonesia{/if}
 					{#if locale === 'ms'}Bahasa Melayu{/if}
+					{#if locale === 'ru'}Русский{/if}
+					{#if locale === 'tr'}Türkçe{/if}
+					{#if locale === 'bn'}বাংলা{/if}
+					{#if locale === 'mr'}मराठी{/if}
+					{#if locale === 'ta'}தமிழ்{/if}
+					{#if locale === 'te'}తెలుగు{/if}
+					{#if locale === 'gu'}ગુજરાતી{/if}
+					{#if locale === 'ur'}اردو{/if}
+					{#if locale === 'kn'}ಕನ್ನಡ{/if}
 				</a>
 			{/each}
 		</nav>

@@ -15,8 +15,8 @@ WhatsApp does not publish official user counts by language, so the figures below
 | 5 | Indonesian | `id` | ~112M | Indonesia (112M) | ✅ |
 | 5 | Malay | `ms` | ~25M | Malaysia (~22M), Brunei, Singapore | ✅ |
 | 6 | Arabic | `ar` | ~100M+ | Egypt (56M), Saudi Arabia, UAE, Morocco, Algeria, Iraq | ✅ |
-| 7 | Russian | `ru` | ~72M | Russia (72M), CIS countries | ❌ |
-| 8 | Turkish | `tr` | ~60M | Turkey (60M) | ❌ |
+| 7 | Russian | `ru` | ~72M | Russia (72M), CIS countries | ✅ |
+| 8 | Turkish | `tr` | ~60M | Turkey (60M) | ✅ |
 | 9 | German | `de` | ~55M | Germany (53M), Austria, Switzerland | ✅ |
 | 10 | Italian | `it` | ~38M | Italy (37.5M) | ✅ |
 
@@ -33,12 +33,12 @@ Per the 2011 Census of India (still the most-cited source for native-speaker cou
 | # | Language | Code | Native speakers | % of India | Region |
 |---|---|---|---|---|---|
 | 1 | Hindi | `hi` | ~528M | 43.6% | North India ("Hindi belt") | ✅ |
-| 2 | Bengali | `bn` | ~97M | 8.0% | West Bengal, Tripura (also national language of Bangladesh, +160M more speakers there) | ❌ |
-| 3 | Marathi | `mr` | ~83M | 6.9% | Maharashtra (Mumbai) | ❌ |
-| 4 | Telugu | `te` | ~81M | 6.7% | Andhra Pradesh, Telangana | ❌ |
-| 5 | Tamil | `ta` | ~69M | 5.7% | Tamil Nadu (also Sri Lanka, Singapore, Malaysia diaspora) | ❌ |
-| 6 | Gujarati | `gu` | ~55M | 4.6% | Gujarat | ❌ |
-| 7 | Urdu | `ur` | ~50M | 4.2% | spread across North India (also national language of Pakistan, ~230M total speakers including L2) | ❌ |
+| 2 | Bengali | `bn` | ~97M | 8.0% | West Bengal, Tripura (also national language of Bangladesh, +160M more speakers there) | ✅ |
+| 3 | Marathi | `mr` | ~83M | 6.9% | Maharashtra (Mumbai) | ✅ |
+| 4 | Telugu | `te` | ~81M | 6.7% | Andhra Pradesh, Telangana | ✅ |
+| 5 | Tamil | `ta` | ~69M | 5.7% | Tamil Nadu (also Sri Lanka, Singapore, Malaysia diaspora) | ✅ |
+| 6 | Gujarati | `gu` | ~55M | 4.6% | Gujarat | ✅ |
+| 7 | Urdu | `ur` | ~50M | 4.2% | spread across North India (also national language of Pakistan, ~230M total speakers including L2) | ✅ |
 | 8 | Kannada | `kn` | ~43M | 3.6% | Karnataka (Bengaluru) | ❌ |
 | 9 | Odia | `or` | ~37M | 3.1% | Odisha | ❌ |
 | 10 | Malayalam | `ml` | ~35M | 2.9% | Kerala | ❌ |
@@ -49,11 +49,11 @@ Per the 2011 Census of India (still the most-cited source for native-speaker cou
 ## Current app support
 
 Locales configured in `project.inlang/settings.json`:
-- ✅ `en` (base) · `es` · `pt` · `fr` · `de` · `it` · `pl` · `hi` · `ar` · `id` · `ms`
+- ✅ `en` (base) · `es` · `pt` · `fr` · `de` · `it` · `pl` · `hi` · `ar` · `id` · `ms` · `ru` · `tr` · `bn` · `mr` · `te` · `ta` · `gu` · `ur`
 
-Total: 11 locales.
+Total: 19 locales.
 
-RTL is wired through Paraglide's `getTextDirection` (called in `src/hooks.server.ts`) into `<html dir>` — Arabic is the first RTL locale in the app, future RTL adds (Urdu, Hebrew) will not need new infrastructure.
+RTL is wired through Paraglide's `getTextDirection` (called in `src/hooks.server.ts`) into `<html dir>` — Arabic and Urdu are the RTL locales currently in the app; future RTL adds (Hebrew, Persian) will not need new infrastructure.
 
 **Note on `id` vs `ms`:** Indonesian and Malay share roots and are mutually intelligible at a basic level, but they have diverged enough in vocabulary, spelling, and idiom that Indonesians and Malaysians generally prefer their own variant. They also have separate ISO 639-1 codes (`id`, `ms`), which means Google can serve them as distinct hreflang targets — collapsing them into one locale would leave SEO reach on the table in either Indonesia or Malaysia.
 
@@ -61,13 +61,10 @@ RTL is wired through Paraglide's `getTextDirection` (called in `src/hooks.server
 
 Based on raw WhatsApp user reach, ordered by expected impact:
 
-1. **Russian (`ru`)** — ~72M users in Russia + CIS reach.
-2. **Turkish (`tr`)** — ~60M users, concentrated single market.
-3. **Bengali (`bn`)** — ~97M in India + ~160M in Bangladesh. Highest-impact Indian-language add after Hindi.
-4. **Tamil (`ta`)** — ~69M, covers South India where Hindi has weaker reach.
-5. **Telugu (`te`)** — ~81M, similar reasoning to Tamil.
-6. **Marathi (`mr`)** — ~83M, dominant in Mumbai region.
-7. **Urdu (`ur`)** — ~230M total speakers (Pakistan + North India). RTL infrastructure now exists from Arabic, so this is low-friction to add.
+1. **Kannada (`kn`)** — ~43M, dominant in Karnataka (Bengaluru tech hub).
+2. **Malayalam (`ml`)** — ~35M, fills the last major South India gap (Kerala).
+3. **Punjabi (`pa`)** — ~33M, plus a major Canada/UK diaspora.
+4. **Persian/Farsi (`fa`)** — ~70M+ (Iran, Afghanistan, Tajikistan). RTL infrastructure already in place from Arabic and Urdu.
 
 Notes:
 - Indian-language adds have multiplicative value because they don't just bring new users; they deepen reach in an already-massive market where the app likely already has traction in English/Hindi.
