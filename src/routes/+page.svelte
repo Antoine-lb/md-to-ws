@@ -455,14 +455,18 @@
 				class="text-[#027eb5] underline">{m.footer_p2_link()}</a
 			>{m.footer_p2_after()}
 		</p>
-		<nav aria-label="Language" class="flex flex-wrap items-center gap-x-3 gap-y-1 pt-2">
+		<nav aria-label="Language" class="flex flex-wrap items-center gap-2 pt-2">
 			{#each locales as locale (locale)}
+				{@const active = locale === currentLocale}
 				<a
 					href={normalizedPath(locale)}
 					hreflang={locale}
 					lang={locale}
-					class="text-[#027eb5] underline"
-					aria-current={locale === currentLocale ? 'page' : undefined}
+					aria-current={active ? 'page' : undefined}
+					data-sveltekit-reload
+					class="rounded-full border px-3 py-1 text-xs font-medium transition-colors {active
+						? 'border-gray-900 bg-gray-900 text-white'
+						: 'border-gray-300 text-gray-700 hover:border-gray-500 hover:bg-gray-100'}"
 				>
 					{#if locale === 'en'}English{/if}
 					{#if locale === 'es'}Español{/if}
